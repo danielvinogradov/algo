@@ -3,16 +3,14 @@ package ru.yandex.practicum.sprint1.b;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.StringTokenizer;
 
 /**
  * B. Чётные и нечётные числа
  *
- * Решение через множество.
+ * Решение через цикл.
  */
-public final class B {
+public class B2 {
 
     private static final String WIN_MESSAGE = "WIN";
     private static final String FAIL_MESSAGE = "FAIL";
@@ -26,18 +24,15 @@ public final class B {
         final int c = Integer.parseInt(stringTokenizer.nextToken());
         final int[] elements = new int[]{a, b, c};
 
-        final Set<Integer> integerSet = new HashSet<>();
-        for (final int el : elements) {
-            integerSet.add(Math.abs(el % 2));
+        int prev = Math.abs(elements[0]) % 2;
+        for (int i = 1; i < elements.length; i++) {
+            int current = Math.abs(elements[i]) % 2;
+            if (prev != current) {
+                System.out.println(FAIL_MESSAGE);
+                return;
+            }
         }
 
-        final String message;
-        if (integerSet.size() == 1) {
-            message = WIN_MESSAGE;
-        } else {
-            message = FAIL_MESSAGE;
-        }
-
-        System.out.println(message);
+        System.out.println(WIN_MESSAGE);
     }
 }
