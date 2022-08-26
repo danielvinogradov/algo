@@ -1,0 +1,6 @@
+3
+i like dfs and bfs
+i like dfs dfs
+i like bfs with bfs and bfs
+1
+dfs dfs dfs dfs bfs
